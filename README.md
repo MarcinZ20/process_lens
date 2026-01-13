@@ -26,8 +26,11 @@ This repository contains code and resources for a Process Mining project.
    ```bash
    pip install -r requirements.txt
    ```
-   
-4. Run the application:
+4. Add your Gemini API key as an environment variable:
+   ```bash
+   export GEMINI_API_KEY='your_api_key_here'
+   ```
+5. Run the application:
    ```bash
    streamlit run src/main.py
    ```
