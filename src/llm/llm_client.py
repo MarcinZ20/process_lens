@@ -4,13 +4,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class LlmClient:
     def __init__(self, api_key: str = None):
         """
         Initializes the connection to Google Gemini.
         """
         self.api_key = api_key
-        self.client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'))
+        self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
         self.model = "gemini-2.5-flash"
 
     @property
@@ -37,8 +38,7 @@ class LlmClient:
             )
 
             response = self.client.models.generate_content(
-                model = self.model,
-                contents=prompt
+                model=self.model, contents=prompt
             )
 
             if response.text:
@@ -46,5 +46,5 @@ class LlmClient:
             else:
                 return f"Subprocess {subprocess_id}"
 
-        except Exception as e:
+        except Exception:
             return f"Subprocess {subprocess_id} (API Error)"
